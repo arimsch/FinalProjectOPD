@@ -1,0 +1,39 @@
+﻿@model DataLayer.Entityes.Lec;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+</html>
+<link rel="stylesheet" href="~/css/site.css">
+
+<div class="edit-block">
+    <h2>Лекция</h2>
+    @using (Html.BeginForm("EditLec", "Home"))
+    {
+        @Html.HiddenFor(m => m.Id)
+        <div class="dataBox">
+            <label>Предмет</label><br />
+            @Html.TextBoxFor(m => m.Subject, new { @class = "text-box" })
+            @Html.ValidationMessageFor(m => m.Subject)
+        </div>
+        <div class="dataBox">
+            <label>Лектор</label><br />
+            @Html.DropDownListFor(m=>m.LectorId, ViewBag.Lectors as SelectList)
+        </div>
+        <div class="dataBox">
+            <label>Дата</label><br />
+            @Html.TextBoxFor(m => m.Date, new { type = "datetime-local", @class = "text-box" })
+            @Html.ValidationMessageFor(m => m.Date)
+        </div>
+        <div style="display:flex;">
+            <div class="addmus">
+                <a asp-action="Index">Вернуться на главную</a>
+            </div>
+            <div class="addmus">
+                <input type="submit" value="Сохранить" />
+            </div>
+        </div>
+    }
+</div>

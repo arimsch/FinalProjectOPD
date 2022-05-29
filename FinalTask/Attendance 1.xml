@@ -1,0 +1,20 @@
+<Attendance>
+  <Lecture>
+    <Subject>ОПД</Subject>
+    <Date>2022-05-26T00:00:00</Date>
+    <Student>
+      <Name>Даша</Name>
+      <Attend>false</Attend>
+      <Grade>0</Grade>
+    </Student>
+  </Lecture>
+  <Lecture>
+    <Subject>ОПД</Subject>
+    <Date>2022-05-26T00:00:00</Date>
+    <Student>
+      <Name>Арина</Name>
+      <Attend>false</Attend>
+      <Grade>0</Grade>
+    </Student>
+  </Lecture>
+</Attendance>

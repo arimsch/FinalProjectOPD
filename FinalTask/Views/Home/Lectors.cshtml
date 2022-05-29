@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DataLayer.Entityes.Lector>;
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+</html>
+<link rel="stylesheet" href="~/css/site.css">
+
+<div class="muslist">
+    <table class="tab">
+        <caption>Лекторы</caption>
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>
+                @Html.ActionLink("Изменить", "EditLector", item)
+            </td>
+            <td>
+                @Html.ActionLink("Удалить", "DeleteLector", item)
+            </td>
+        </tr>
+        }
+    </table>
+    <div style="display:flex;">
+        <div class="addmus">
+            @Html.ActionLink("Добавить лектора", "CreateLector")
+        </div>
+        <div class="addmus">
+            <a asp-action="Index">Вернуться к списку лекций</a>
+        </div>
+    </div>
+</div>

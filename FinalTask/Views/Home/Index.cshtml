@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DataLayer.Entityes.Lec>;
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+</html>
+<link rel="stylesheet" href="~/css/site.css">
+
+<div class="muslist">
+    <table class="tab">
+        <caption>Лекции</caption>
+        <tr>
+            <th>Id</th>
+            <th>Предмет</th>
+            <th>Лектор</th>
+            <th>Дата</th>
+        </tr>
+        @foreach(var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Subject</td>
+            <td>@item.Lector.Name</td>
+            <td>@item.Date</td>
+            <td>
+                @Html.ActionLink("Посещаемость", "Attendances", item)
+            </td>
+            <td>
+                @Html.ActionLink("Редактировать", "EditLec", item)
+            </td>
+            <td>
+                @Html.ActionLink("Удалить", "DeleteLec", item)
+            </td>
+            <td>
+                @Html.ActionLink("XML", "SaveXML", item)
+            </td>
+            <td>
+                @Html.ActionLink("JSON", "SaveJSON", item)
+            </td>
+        </tr>
+        }
+    </table>
+    <div style="display:flex;">
+        <div class="addmus">
+            @Html.ActionLink("Добавить новую лекцию", "CreateLec")
+        </div>
+        <div class="addmus">
+            @Html.ActionLink("Лекторы", "Lectors")
+        </div>
+        <div class="addmus">
+            @Html.ActionLink("Студенты", "Students")
+        </div>
+        <div class="count">
+            Всего лекций: @Model.Count()
+        </div>
+    </div>
+</div>

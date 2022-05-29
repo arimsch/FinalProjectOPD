@@ -1,0 +1,52 @@
+﻿@model DataLayer.ViewModels.StudGrades;
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+</html>
+<link rel="stylesheet" href="~/css/site.css">
+
+<div class="muslist">
+    <table class="tab">
+        <caption>Студенты</caption>
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Средний балл</th>
+        </tr>
+        @foreach(var item in Model.Students)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>
+                    @{ 
+                        double g = 0;
+                        if (Model.Attendances.Where(u => u.StudentId == item.Id).Count() != 0)
+                            g = Model.Attendances.Where(u => u.StudentId == item.Id).Average(p => p.Grade);
+                    }
+                    @g
+                </td>
+            <td>
+                @Html.ActionLink("Изменить", "EditStudent", item)
+            </td>
+            <td>
+                @Html.ActionLink("Удалить", "DeleteStudent", item)
+            </td>
+        </tr>
+        }
+    </table>
+    <div style="display:flex;">
+        <div class="addmus">
+            @Html.ActionLink("Добавить студента", "CreateStudent")
+        </div>
+
+
+        <div class="addmus">
+            <a asp-action="Index">Вернуться к списку лекций</a>
+        </div>
+    </div>
+</div>

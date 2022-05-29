@@ -1,0 +1,82 @@
+﻿@model List<DataLayer.Entityes.Attendance>;
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+</html>
+<link rel="stylesheet" href="~/css/site.css">
+
+<div class="muslist">
+    
+    <table class="tab">
+        <caption>Посещаемость</caption>
+
+        <tr>
+            @*<th>Id</th>*@
+            <th>Студент</th>
+            <th>Присутствие</th>
+            <th>Оценка</th>
+        </tr>
+        @using (Html.BeginForm("Attendances", "Home")){
+            @for(int i=0;i< Model.Count; i++)
+            {
+                <input type="hidden" asp-for="@Model[i].Id">
+                <input type="hidden" asp-for="@Model[i].StudentId">
+                <input type="hidden" asp-for="@Model[i].LecId">
+                <tr>
+                    <td>
+                        @Model[i].Student.Name
+                    </td>
+                    <td>
+                        <input asp-for="@Model[i].Attend" type="checkbox" >
+                    </td>
+                    <td><input asp-for="@Model[i].Grade" type="number"></td>
+                    <td>
+                        <div class="addmus">
+                            <input type="submit" asp-route-roleId="1" value="Сохранить" />
+                        </div> 
+        
+                    </td>
+                </tr>
+            }
+         }
+        @*@for(int i=0;i< Model.Count;i++)
+        {
+            @using (Html.BeginForm("Attendances", "Home"))
+            {
+                @Html.Hidden("Id", @Model[i].Id)
+            <tr>
+            <td>@Model[i].Student.Name</td>
+            <td>
+                @Html.CheckBoxFor(m => Model[i].Attend)
+            </td>
+            
+            <td>
+                @Html.TextBoxFor(m => Model[i].Grade, new { type = "number", @class = "text-box" })
+            </td>
+            <td>
+                <div class="addmus">
+                    <input type="submit" value="Сохранить" />
+                </div> 
+        
+            </td>
+        </tr>
+        }*@
+        
+
+        
+    </table>
+    
+    
+    <div style="display:flex;">
+       
+    
+        <div class="addmus">
+            <a asp-action="Index">Вернуться к списку лекций</a>
+        </div>
+    </div>
+    
+</div>

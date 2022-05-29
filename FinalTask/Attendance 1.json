@@ -1,0 +1,16 @@
+[
+  {
+    "Subject": "ОПД",
+    "Date": "2022-05-26T00:00:00",
+    "Student": "Даша",
+    "Attend": false,
+    "Grade": 0
+  },
+  {
+    "Subject": "ОПД",
+    "Date": "2022-05-26T00:00:00",
+    "Student": "Арина",
+    "Attend": false,
+    "Grade": 0
+  }
+]

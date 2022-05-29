@@ -1,0 +1,29 @@
+﻿@model DataLayer.Entityes.Student;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+</html>
+<link rel="stylesheet" href="~/css/site.css">
+
+<div class="edit-block">
+    <h2>Студент</h2>
+    @using (Html.BeginForm("EditStudent", "Home"))
+    {
+        @Html.HiddenFor(m => m.Id)
+        <div class="dataBox">
+            <label>Имя</label><br />
+            @Html.TextBoxFor(m => m.Name, new { @class = "text-box" })
+        </div>
+        <div style="display:flex;">
+            <div class="addmus">
+                <a asp-action="Students">Вернуться к студентам</a>
+            </div>
+            <div class="addmus">
+                <input type="submit" value="Сохранить" />
+            </div>
+        </div>
+    }
+</div>
